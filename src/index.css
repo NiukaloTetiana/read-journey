@@ -2,6 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fonts */
+@font-face {
+  font-family: "Gilroy";
+  src:
+    url("../src/assets/fonts/Gilroy-Medium.woff2") format("woff2"),
+    url("../src/assets/fonts/Gilroy-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src:
+    url("../src/assets/fonts/Gilroy-Bold.woff2") format("woff2"),
+    url("../src/assets/fonts/Gilroy-Bold.woff") format("woff");
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+}
+
 body {
-  background-color: slategrey;
+  @apply font-gilroy bg-[#141414] font-medium;
+}
+
+input {
+  @apply outline-none;
 }
