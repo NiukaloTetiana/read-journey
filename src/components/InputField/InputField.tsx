@@ -31,11 +31,11 @@ export const InputField = ({
 }: InputFieldProps) => {
   const [showPass, setShowPass] = useState(false);
 
-  const baseClass = `bg-[#262626] w-full h-[44px] md:h-[50px] pr-10 md:pr-[68px] border rounded-[12px] py-[14px] md:py-[16px] text text-[#f9f9f9] transition duration-300 ${className}`;
+  const baseClass = `bg-[#262626] w-full h-[44px] md:h-[50px] pr-10 md:pr-[68px] border rounded-[12px] py-[14px] md:py-[16px] text text-[#f9f9f9] transition duration-500 ${className}`;
 
   const borderColors = {
     default:
-      "border-none hover:border hover:border-[#f9f9f919] focus-visible:border focus-visible:border-[#f9f9f919]",
+      "border border-transparent hover:border-[#f9f9f919] focus-visible:border-[#f9f9f919]",
     error:
       "border-[#E90516] hover:border-[#E90516] focus-visible:border-[#E90516]",
     success:
@@ -56,9 +56,13 @@ export const InputField = ({
         type={type === "password" && showPass ? "text" : type}
         className={inputClass}
         {...register(name)}
+        id={name}
       />
 
-      <label className="text absolute left-[14px] top-[14px] text-[#686868] md:top-[16px]">
+      <label
+        htmlFor={name}
+        className="text absolute left-[14px] top-[14px] text-[#686868] md:top-[16px]"
+      >
         {label}
       </label>
       <div className="absolute right-[12px] top-[14px] flex items-center space-x-2 md:right-[15px] md:top-4">

@@ -7,7 +7,7 @@ import {
 
 export const ImgBlock = () => {
   return (
-    <div className="flex shrink-0 rounded-[30px] bg-[#1f1f1f] px-10 pt-5 md:hidden lg:block lg:h-[736px] lg:px-[98px] lg:pt-20">
+    <div className="flex shrink-0 rounded-[30px] bg-[#1f1f1f] px-10 pt-5 md:hidden lg:block lg:h-[736px] lg:px-[98px] lg:pt-[89px]">
       <picture>
         <source
           media="(min-width: 1440px)"
