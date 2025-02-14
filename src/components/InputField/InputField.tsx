@@ -35,11 +35,11 @@ export const InputField = ({
 
   const borderColors = {
     default:
-      "border border-transparent hover:border-[#f9f9f919] focus-visible:border-[#f9f9f919]",
+      "border hover:shadow-md focus-visible:shadow-md border-transparent hover:border-[#f9f9f919] focus-visible:border-[#f9f9f919]",
     error:
-      "border-[#E90516] hover:border-[#E90516] focus-visible:border-[#E90516]",
+      "border-[#E90516] hover:shadow-md focus-visible:shadow-md hover:border-[#E90516] focus-visible:border-[#E90516]",
     success:
-      "border-[#30B94D] hover:border-[#30B94D] focus-visible:border-[#30B94D]",
+      "border-[#30B94D] hover:shadow-md focus-visible:shadow-md hover:border-[#30B94D] focus-visible:border-[#30B94D]",
   };
 
   const getBorderClass = () => {
