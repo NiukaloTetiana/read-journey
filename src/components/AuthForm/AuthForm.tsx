@@ -91,14 +91,14 @@ export const AuthForm = ({ registration, toggleModal }: IAuthFormProps) => {
       <div className="mt-auto flex items-center gap-[14px] md:gap-5">
         <button
           type="submit"
-          className="h-[42px] w-[140px] rounded-[30px] bg-[#f9f9f9] p-[12px] text-center text-[14px] font-bold leading-[1.29] tracking-[0.02em] text-[#1f1f1f] transition duration-500 md:h-[52px] md:w-[225px] md:p-[16px] md:text-[16px] md:leading-[1]"
+          className={`hover-button h-[42px] rounded-[30px] border border-transparent bg-[#f9f9f9] p-[12px] text-center text-[14px] font-bold leading-[1.29] tracking-[0.02em] text-[#1f1f1f] transition duration-500 md:h-[52px] md:p-[16px] md:text-[16px] md:leading-[1] ${registration ? "w-[140px] md:w-[225px]" : "w-[131px] md:w-[166px]"}`}
         >
           {registration ? "Registration" : "Log in"}
         </button>
 
         <Link
           to={registration ? "/login" : "/register"}
-          className="text-[12px] leading-[1.17] tracking-[-0.02em] text-[#686868] underline md:text-[14px] md:leading-[1.29]"
+          className="hover text-[12px] leading-[1.17] tracking-[-0.02em] text-[#686868] underline transition duration-500 md:text-[14px] md:leading-[1.29]"
         >
           {registration ? "Already have an account?" : "Don't have an account?"}
         </Link>

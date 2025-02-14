@@ -8,6 +8,10 @@ export default {
       lg: "1440px",
     },
     extend: {
+      boxShadow: {
+        sm: "0 2px 4px #f9f9f9",
+        md: "0 0 4px #f9f9f919",
+      },
       fontFamily: {
         gilroy: ["Gilroy", "sans-serif"],
       },
@@ -35,6 +39,25 @@ export default {
             paddingLeft: "32px",
             paddingRight: "32px",
             maxWidth: "1280px",
+          },
+        },
+        ".link, .active": {
+          position: "relative",
+          "&::after": {
+            content: "''",
+            position: "absolute",
+            left: "0",
+            bottom: "-8px",
+            width: "100%",
+            height: "3px",
+            backgroundColor: "#4f92f7",
+            transition: "transform 0.7s",
+            transformOrigin: "right",
+            transform: "scaleX(0)",
+          },
+          "&:hover::after": {
+            transform: "scaleX(1)",
+            transformOrigin: "left",
           },
         },
       });
