@@ -23,6 +23,28 @@
   font-display: swap;
 }
 
+#root {
+  @apply flex min-h-screen flex-col;
+}
+
+::selection {
+  @apply bg-[#f9f9f990] text-[#141414];
+}
+
+::-moz-selection {
+  @apply bg-[#f9f9f990] text-[#141414];
+}
+
+@layer base {
+  * {
+    @apply outline-none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   @apply font-gilroy bg-[#141414] font-medium;
 }
@@ -31,10 +53,48 @@ input {
   @apply outline-none;
 }
 
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #f9f9f9 inset;
+  box-shadow: 0 0 0px 1000px #f9f9f9 inset;
+  -webkit-text-fill-color: #262626 !important;
+}
+
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #f9f9f9 inset;
+  box-shadow: 0 0 0px 1000px #f9f9f9 inset;
+  -webkit-text-fill-color: #1f1f1f !important;
+}
+
 .text {
   @apply text-[12px] leading-[1.33] tracking-[-0.02em] md:text-[14px] md:leading-[1.29];
 }
 
 .text-message {
   @apply mt-[4px] pl-[14px] text-[10px] leading-[1.2] tracking-[-0.02em] transition duration-300 md:mt-[8px] md:text-[12px] md:leading-[1.17];
+}
+
+.hover {
+  &:hover,
+  &:focus-visible {
+    @apply text-[#f9f9f9];
+  }
+}
+
+.hover-button {
+  &:hover,
+  &:focus-visible {
+    @apply border-[#f9f9f933] bg-transparent text-[#f9f9f9];
+  }
+}
+
+.link {
+  &:hover,
+  &:focus-visible,
+  &.active {
+    @apply relative text-[#f9f9f9] after:absolute after:bottom-[-8px] after:h-[3px] after:w-full after:origin-left after:rounded-[8px] after:bg-[#4f92f7] after:content-[''];
+  }
 }
