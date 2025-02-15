@@ -11,3 +11,5 @@ export * from "./Header/UserNav";
 export * from "./Header/UserBar";
 export * from "./Header/LogoutBtn";
 export * from "./Header/BurgerMenu";
+export * from "./LogoutModal/LogoutModal";
+export * from "./Loader/Loader";

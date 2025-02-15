@@ -46,7 +46,7 @@ html {
 }
 
 body {
-  @apply font-gilroy bg-[#141414] font-medium;
+  @apply bg-[#141414] font-gilroy font-medium;
 }
 
 input {
@@ -84,10 +84,25 @@ textarea:-webkit-autofill:focus {
   }
 }
 
+.button {
+  @apply rounded-[30px] border text-center text-[14px] font-bold leading-[1] tracking-[0.02em] transition duration-500 md:text-[16px];
+}
+
+.button-logout {
+  @apply h-[38px] w-[91px] p-[10px] md:h-[42px] md:w-[114px] md:p-[12px];
+}
+
 .hover-button {
   &:hover,
   &:focus-visible {
     @apply border-[#f9f9f933] bg-transparent text-[#f9f9f9];
+  }
+}
+
+.hover-logout {
+  &:hover,
+  &:focus-visible {
+    @apply border-transparent bg-[#f9f9f9] text-[#1f1f1f];
   }
 }
 

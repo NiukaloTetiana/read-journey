@@ -1,35 +1,37 @@
-// import { Modal } from "../../components";
+import { LogoutModal, Modal } from "../../components";
 
-// import { useModal } from "../../hooks";
+import { useModal } from "../../hooks";
 
 interface ILogoutBtnProps {
-  className?: string;
+  logoutClass?: string;
   toggleMenu?: () => void;
 }
 
-export const LogoutBtn = ({ toggleMenu }: ILogoutBtnProps) => {
-  // const [isOpenModal, toggleModal] = useModal();
+export const LogoutBtn = ({ logoutClass, toggleMenu }: ILogoutBtnProps) => {
+  const [isOpenModal, toggleModal] = useModal();
 
   return (
-    <>
+    <div className={logoutClass}>
       <button
         onClick={() => {
           toggleMenu && toggleMenu();
-          // toggleModal();
+          toggleModal();
         }}
         type="button"
-        className=""
+        className="button hover-logout h-[38px] w-[91px] border-[#f9f9f933] bg-transparent p-[10px] text-[#f9f9f9] md:h-[42px] md:w-[114px] md:p-[12px]"
       >
         Log out
       </button>
 
-      {/* {isOpenModal && (
+      {isOpenModal && (
         <Modal
-          isOpen={toggleModal}
+          isOpen={isOpenModal}
           toggleModal={toggleModal}
-          className="bg-[#fff4df] px-[28px] py-10 md:p-[80px]"
-        ></Modal>
-      )} */}
-    </>
+          className="p-[60px] md:p-[50px]"
+        >
+          <LogoutModal toggleLogoutModal={toggleModal} />
+        </Modal>
+      )}
+    </div>
   );
 };
