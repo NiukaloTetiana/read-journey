@@ -51,7 +51,7 @@ export const AuthForm = ({ registration, toggleModal }: IAuthFormProps) => {
       className="flex h-[411px] w-full flex-col rounded-[30px] bg-[#1f1f1f] p-5 pb-10 md:h-[960px] md:w-[704px] md:px-[64px] md:pb-[214px] md:pt-10 lg:h-[736px] lg:w-[600px] lg:pb-10"
     >
       <Logo />
-      <h2 className="sm-max:text-[26px] sm-max:mt-5 mb-5 mt-10 text-[32px] font-bold leading-[1] tracking-[0.02em] text-[#f9f9f9] md:mb-10 md:mt-[157px] md:w-[444px] md:text-[64px] md:leading-[0.94] lg:mt-[107px]">
+      <h2 className="mb-5 mt-10 text-[32px] font-bold leading-[1] tracking-[0.02em] text-[#f9f9f9] sm-max:mt-5 sm-max:text-[26px] md:mb-10 md:mt-[157px] md:w-[444px] md:text-[64px] md:leading-[0.94] lg:mt-[107px]">
         Expand your mind, reading{" "}
         <span className="text-[#e3e3e37f]">a book</span>
       </h2>
@@ -91,7 +91,7 @@ export const AuthForm = ({ registration, toggleModal }: IAuthFormProps) => {
       <div className="mt-auto flex items-center gap-[14px] md:gap-5">
         <button
           type="submit"
-          className={`hover-button h-[42px] rounded-[30px] border border-transparent bg-[#f9f9f9] p-[12px] text-center text-[14px] font-bold leading-[1.29] tracking-[0.02em] text-[#1f1f1f] transition duration-500 md:h-[52px] md:p-[16px] md:text-[16px] md:leading-[1] ${registration ? "w-[140px] md:w-[225px]" : "w-[131px] md:w-[166px]"}`}
+          className={`hover-button button h-[42px] border-transparent bg-[#f9f9f9] p-[12px] text-[#1f1f1f] md:h-[52px] md:p-[16px] ${registration ? "w-[140px] md:w-[225px]" : "w-[131px] md:w-[166px]"}`}
         >
           {registration ? "Registration" : "Log in"}
         </button>

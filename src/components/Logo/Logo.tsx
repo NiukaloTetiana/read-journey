@@ -5,7 +5,8 @@ import { Icon } from "../../components";
 
 export const Logo = () => {
   const location = useLocation();
-  const isAuthPage = location.pathname === "/login" || "/register";
+  const isAuthPage =
+    location.pathname === "/login" || location.pathname === "/register";
 
   return (
     <Link
