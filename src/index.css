@@ -109,3 +109,32 @@ textarea:-webkit-autofill:focus {
 .active {
   @apply relative text-[#f9f9f9] after:absolute after:bottom-[-8px] after:left-[0] after:h-[3px] after:w-full after:rounded-[8px] after:bg-[#4f92f7] after:content-[''];
 }
+
+.input {
+  @apply text h-[44px] w-[295px] rounded-[12px] bg-[#262626] text-[#f9f9f9] sm-max:w-[240px] md:h-[50px];
+}
+
+.label {
+  @apply text absolute left-[14px] top-[14px] text-[#686868] md:top-[16px];
+}
+
+.text-dashboard {
+  @apply text-[18px] font-bold leading-[1] tracking-[-0.02] sm-max:text-[16px] md:text-[20px];
+}
+
+.number {
+  @apply text-dashboard flex size-10 items-center justify-center rounded-full bg-[#f9f9f9] text-[#1f1f1f] sm-max:size-[36px] md:size-[44px];
+}
+
+.description {
+  @apply text-[14px] leading-[1.29] tracking-[-0.02] sm-max:text-[12px];
+}
+
+.hover-link {
+  @apply transition duration-500;
+
+  &:hover,
+  &:focus-visible {
+    @apply text-[#f9f9f9];
+  }
+}
