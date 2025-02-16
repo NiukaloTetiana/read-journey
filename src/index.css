@@ -106,10 +106,6 @@ textarea:-webkit-autofill:focus {
   }
 }
 
-.link {
-  &:hover,
-  &:focus-visible,
-  &.active {
-    @apply relative text-[#f9f9f9] after:absolute after:bottom-[-8px] after:h-[3px] after:w-full after:origin-left after:rounded-[8px] after:bg-[#4f92f7] after:content-[''];
-  }
+.active {
+  @apply relative text-[#f9f9f9] after:absolute after:bottom-[-8px] after:left-[0] after:h-[3px] after:w-full after:rounded-[8px] after:bg-[#4f92f7] after:content-[''];
 }

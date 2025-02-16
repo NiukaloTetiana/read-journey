@@ -41,7 +41,7 @@ export default {
             maxWidth: "1280px",
           },
         },
-        ".link, .active": {
+        ".link": {
           position: "relative",
           "&::after": {
             content: "''",
