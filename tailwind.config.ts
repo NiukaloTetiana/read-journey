@@ -41,25 +41,6 @@ export default {
             maxWidth: "1280px",
           },
         },
-        ".link": {
-          position: "relative",
-          "&::after": {
-            content: "''",
-            position: "absolute",
-            left: "0",
-            bottom: "-8px",
-            width: "100%",
-            height: "3px",
-            backgroundColor: "#4f92f7",
-            transition: "transform 0.7s",
-            transformOrigin: "right",
-            transform: "scaleX(0)",
-          },
-          "&:hover::after": {
-            transform: "scaleX(1)",
-            transformOrigin: "left",
-          },
-        },
       });
     },
   ],

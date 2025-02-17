@@ -69,6 +69,10 @@ textarea:-webkit-autofill:focus {
   -webkit-text-fill-color: #1f1f1f !important;
 }
 
+.title {
+  @apply text-[20px] font-bold leading-[1] tracking-[-0.02em] text-[#f9f9f9] md:text-[28px] md:leading-[1.14] md:tracking-[0.02em];
+}
+
 .text {
   @apply text-[12px] leading-[1.33] tracking-[-0.02em] md:text-[14px] md:leading-[1.29];
 }
@@ -107,7 +111,26 @@ textarea:-webkit-autofill:focus {
 }
 
 .active {
-  @apply relative text-[#f9f9f9] after:absolute after:bottom-[-8px] after:left-[0] after:h-[3px] after:w-full after:rounded-[8px] after:bg-[#4f92f7] after:content-[''];
+  @apply relative overflow-hidden text-[#f9f9f9];
+}
+.active::before,
+.active::after {
+  @apply absolute bottom-0 z-[0] h-[3px] w-full overflow-hidden rounded-[8px] bg-[#4f92f7] content-[''];
+}
+.active::before {
+  @apply left-0 origin-right scale-x-0 hover:origin-left hover:scale-x-100;
+  transition: transform 0.9s ease;
+}
+.active::after {
+  @apply left-0 origin-left hover:origin-right hover:scale-x-0;
+  transition: transform 0.3s ease;
+}
+
+.link:not(.active) {
+  @apply relative;
+}
+.link:not(.active):after {
+  @apply absolute bottom-0 left-0 h-[3px] w-full origin-right scale-x-0 rounded-[8px] bg-[#4f92f7] transition duration-500 content-[''] hover:origin-left hover:scale-x-100;
 }
 
 .input {

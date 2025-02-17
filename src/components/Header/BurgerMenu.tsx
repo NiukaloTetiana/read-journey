@@ -43,7 +43,7 @@ export const BurgerMenu = ({
           />
         </button>
         <UserNav navClass="flex md:hidden" />
-        <LogoutBtn />
+        <LogoutBtn toggleMenu={toggleMenu} />
       </div>
     </div>
   );

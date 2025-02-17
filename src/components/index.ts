@@ -14,3 +14,4 @@ export * from "./Header/BurgerMenu";
 export * from "./LogoutModal/LogoutModal";
 export * from "./Loader/Loader";
 export * from "./Dashboard/Dashboard";
+export * from "./RecommendedBooks/RecommendedBooks";

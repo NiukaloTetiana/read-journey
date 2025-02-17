@@ -18,7 +18,7 @@ export const UserNav = ({ navClass, toggleMenu }: IUserNavProps) => {
             <NavLink
               to={item.path}
               onClick={toggleMenu}
-              className="text-[14px] leading-[1.29] tracking-[-0.02em] text-[#686868] transition duration-500 md:text-[16px] md:leading-[1.13]"
+              className="hover link pb-2 text-[14px] leading-[1.29] tracking-[-0.02em] text-[#686868] transition duration-500 md:text-[16px] md:leading-[1.13]"
             >
               {item.label}
             </NavLink>
