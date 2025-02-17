@@ -111,7 +111,12 @@ textarea:-webkit-autofill:focus {
 }
 
 .input {
-  @apply text h-[44px] w-[295px] rounded-[12px] bg-[#262626] text-[#f9f9f9] sm-max:w-[240px] md:h-[50px];
+  @apply text h-[44px] w-[295px] rounded-[12px] border border-transparent bg-[#262626] text-[#f9f9f9] sm-max:w-[240px] md:h-[50px];
+
+  &:hover,
+  &:focus-visible {
+    @apply border-[#f9f9f919] shadow-md;
+  }
 }
 
 .label {
@@ -136,5 +141,20 @@ textarea:-webkit-autofill:focus {
   &:hover,
   &:focus-visible {
     @apply text-[#f9f9f9];
+  }
+}
+
+.bg-img {
+  background-image: url("./assets/images/library/books_tablet_1x.webp");
+
+  background-repeat: no-repeat;
+  background-position: top 22px left 20px;
+  background-size: 40px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-resolution: 1.5dppx) {
+  .bg-img {
+    background-image: url("./assets/images/library/books_tablet_2x.webp");
   }
 }

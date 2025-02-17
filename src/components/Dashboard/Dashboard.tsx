@@ -88,6 +88,13 @@ export const Dashboard = () => {
           />
         </Link>
       </div>
+
+      <div className="bg-img hidden lg:flex lg:gap-[14px] lg:rounded-[12px] lg:bg-[#262626] lg:py-[15px] lg:pl-[74px] lg:pr-5">
+        <p className="description w-[219px] text-[#686868]">
+          "Books are <span className="text-[#f9f9f9]">windows </span>
+          to the world, and reading is a journey into the unknown."
+        </p>
+      </div>
     </div>
   );
 };
