@@ -37,7 +37,7 @@ export const Modal = ({
         >
           <Icon
             id="close"
-            className="fill-none stroke-[#f9f9f9] transition duration-500 focus:fill-[#4F92F7] lg:hover:fill-[#4F92F7]"
+            className="fill-none stroke-[#f9f9f9] transition duration-500 hover:stroke-[#4F92F7] focus-visible:stroke-[#4F92F7]"
             size={22}
           />
         </button>
