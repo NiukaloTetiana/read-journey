@@ -1,4 +1,5 @@
-import { RecommendedItem } from "./RecommendedItem";
+import { useModal } from "../../hooks";
+import { AddBookModal, Modal, RecommendedItem } from "../../components";
 
 const books = [
   {
@@ -22,11 +23,25 @@ const books = [
 ];
 
 export const RecommendedList = () => {
+  const [isAddBookModalOpen, toggleAddBookModal] = useModal();
   return (
     <ul className="flex flex-wrap gap-[21px] sm-max:gap-5 md:gap-x-[25px] md:gap-y-[27px] lg:gap-x-5">
       {books.map((book) => (
-        <RecommendedItem key={book._id} book={book} />
+        <RecommendedItem
+          key={book._id}
+          book={book}
+          openAddBookModal={toggleAddBookModal}
+        />
       ))}
+      {isAddBookModalOpen && (
+        <Modal
+          isOpen={isAddBookModalOpen}
+          toggleModal={toggleAddBookModal}
+          className="img-modal px-[46px] pb-[60px] pt-[130px] md:p-[50px] md:pt-[152px]"
+        >
+          <AddBookModal />
+        </Modal>
+      )}
     </ul>
   );
 };

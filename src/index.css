@@ -181,3 +181,39 @@ textarea:-webkit-autofill:focus {
     background-image: url("./assets/images/library/books_tablet_2x.webp");
   }
 }
+
+.modal-title {
+  @apply text-[18px] font-bold leading-[1] tracking-[-0.02em] text-[#f9f9f9] sm-max:text-[16px] md:text-[20px];
+}
+
+.img-modal {
+  background-image: url("./assets/images/modal/like_mobile_1x.webp");
+
+  background-repeat: no-repeat;
+  background-position: top 60px left 50%;
+  background-size: 50px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-resolution: 1.5dppx) {
+  .img-modal {
+    background-image: url("./assets/images/modal/like_mobile_2x.webp");
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .img-modal {
+    background-image: url("./assets/images/modal/like_tablet_1x.webp");
+
+    background-repeat: no-repeat;
+    background-position: top 50px left 50%;
+    background-size: 70px;
+  }
+
+  @media screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-resolution: 1.5dppx) {
+    .img-modal {
+      background-image: url("./assets/images/modal/like_tablet_2x.webp");
+    }
+  }
+}

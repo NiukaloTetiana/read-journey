@@ -17,3 +17,5 @@ export * from "./Dashboard/Dashboard";
 export * from "./RecommendedBooks/RecommendedBooks";
 export * from "./RecommendedList/RecommendedList";
 export * from "./RecommendedList/RecommendedItem";
+export * from "./BookModal/BookModal";
+export * from "./AddBookModal/AddBookModal";
