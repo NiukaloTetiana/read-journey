@@ -20,3 +20,4 @@ export * from "./RecommendedList/RecommendedItem";
 export * from "./BookModal/BookModal";
 export * from "./AddBookModal/AddBookModal";
 export * from "./MyLibraryBooks/MyLibraryBooks";
+export * from "./FiltersForm/FiltersForm";
