@@ -134,7 +134,7 @@ textarea:-webkit-autofill:focus {
 }
 
 .input {
-  @apply text h-[44px] w-[295px] rounded-[12px] border border-transparent bg-[#262626] text-[#f9f9f9] sm-max:w-[240px] md:h-[50px];
+  @apply text h-[44px] w-[295px] rounded-[12px] border border-transparent bg-[#262626] text-[#f9f9f9] sm-max:w-[240px] md:h-[50px] lg:w-[313px];
 
   &:hover,
   &:focus-visible {
