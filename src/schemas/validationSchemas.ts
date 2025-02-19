@@ -30,3 +30,18 @@ export const loginSchema = yup.object().shape({
     .max(64, "Max length must be less than 64 chars"),
   password: yup.string().required("Password is required"),
 });
+
+export const filtersSchema = yup.object({
+  title: yup
+    .string()
+    .required("Book title is required")
+    .min(2, "Min length must be more than 2 chars"),
+  author: yup
+    .string()
+    .required("The author is required")
+    .max(50, "Max length must be less than 50 chars"),
+  pages: yup
+    .string()
+    .required("Number of pages is required")
+    .min(1, "Min length must be more than 1 chars"),
+});
