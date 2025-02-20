@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
-import { Icon } from "../Icon/Icon";
-import { FiltersForm } from "../FiltersForm/FiltersForm";
+
+import { BookForm, Icon } from "../../components";
+import { createItems } from "../../constants";
 
 export const Dashboard = () => {
   const location = useLocation();
@@ -10,32 +11,24 @@ export const Dashboard = () => {
     <div
       className={`lg:pt- flex flex-col gap-5 rounded-[30px] bg-[#1f1f1f] p-5 md:flex-row md:gap-8 md:p-8 lg:flex-col lg:p-5 ${isLibraryPage ? "lg:gap-[78px]" : "lg:gap-5"}`}
     >
-      <FiltersForm />
+      <BookForm />
 
       <div className="w-[295px] rounded-[12px] bg-[#262626] p-5 sm-max:w-[240px] md:w-[313px]">
         <h3 className="text-dashboard mb-5 text-[#f9f9f9] md:mb-10">
           {isLibraryPage ? "Recommended books" : "Start your workout"}
         </h3>
 
-        <div className="mb-5 flex gap-3">
-          <div className="number">1</div>
-          <p className="description w-[197px] text-[#f9f9f9] sm-max:w-[158px]">
-            Create a personal library:{" "}
-            <span className="text-[#686868]">
-              add the books you intend to read to it.
-            </span>
-          </p>
-        </div>
-
-        <div className="mb-5 flex gap-3">
-          <div className="number">2</div>
-          <p className="description w-[210px] text-[#f9f9f9] sm-max:w-[157px]">
-            Create your first workout:{" "}
-            <span className="text-[#686868]">
-              define a goal, choose a period, start training.
-            </span>
-          </p>
-        </div>
+        <ul className="mb-5 flex flex-col gap-5 md:mb-[26px]">
+          {createItems.map((item, index) => (
+            <li key={index} className="flex gap-3">
+              <div className="number">{item.number}</div>
+              <p className={`description ${item.className} text-[#f9f9f9]`}>
+                {item.description}{" "}
+                <span className="text-[#686868]">{item.details}</span>
+              </p>
+            </li>
+          ))}
+        </ul>
 
         <Link
           to={!isLibraryPage ? "/library" : "/recommended"}
