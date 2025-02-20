@@ -4,10 +4,10 @@ import { useLocation } from "react-router-dom";
 interface IFormData {
   title: string;
   author: string;
-  pages: number;
+  totalPages: number;
 }
 
-export const FiltersForm = () => {
+export const BookForm = () => {
   const { register, reset, handleSubmit } = useForm<IFormData>();
   const location = useLocation();
   const isLibraryPage = location.pathname === "/library";
@@ -19,7 +19,7 @@ export const FiltersForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <p className="mb-2 pl-[14px] text-[10px] leading-[1.2] tracking-[-0.02em] text-[#f9f9f9] md:text-[14px] md:leading-[1.29]">
-        Filters:
+        {!isLibraryPage ? "Filters:" : "Create your library:"}
       </p>
       <div className="relative mb-2">
         <input
@@ -50,10 +50,10 @@ export const FiltersForm = () => {
           <input
             type="text"
             className="input p-[12px] pl-[119px] md:p-4 md:pl-[135px]"
-            {...register("pages")}
-            id="pages"
+            {...register("totalPages")}
+            id="totalPages"
           />
-          <label htmlFor="pages" className="label">
+          <label htmlFor="totalPages" className="label">
             Number of pages:
           </label>
         </div>
