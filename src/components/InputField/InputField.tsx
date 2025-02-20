@@ -1,22 +1,23 @@
 import { useState } from "react";
-import { FieldErrors, FormState, UseFormRegister } from "react-hook-form";
+import {
+  FieldErrors,
+  FieldValues,
+  FormState,
+  UseFormRegister,
+} from "react-hook-form";
+import { useLocation } from "react-router-dom";
 
 import { Icon } from "../../components";
 
-export interface IFormData {
-  name?: string;
-  email: string;
-  password: string;
-}
-
 interface InputFieldProps {
-  name: keyof IFormData;
+  name: string;
   type: string;
   label: string;
   className?: string;
-  errors: FieldErrors<IFormData>;
-  dirtyFields: FormState<IFormData>["dirtyFields"];
-  register: UseFormRegister<IFormData>;
+  wrapperClass?: string;
+  errors: FieldErrors<FieldValues>;
+  dirtyFields: FormState<FieldValues>["dirtyFields"];
+  register: UseFormRegister<FieldValues>;
   setShowPass?: (value: boolean) => void;
 }
 
@@ -24,6 +25,7 @@ export const InputField = ({
   name,
   type,
   label,
+  wrapperClass = "",
   className,
   errors,
   dirtyFields,
@@ -31,7 +33,11 @@ export const InputField = ({
 }: InputFieldProps) => {
   const [showPass, setShowPass] = useState(false);
 
-  const baseClass = `bg-[#262626] w-full h-[44px] md:h-[50px] pr-10 md:pr-[68px] border rounded-[12px] py-[14px] md:py-[16px] text text-[#f9f9f9] transition duration-500 ${className}`;
+  const location = useLocation();
+  const isAuthPage =
+    location.pathname === "/login" || location.pathname === "/register";
+
+  const baseClass = `bg-[#262626] w-full h-[44px] md:h-[50px] border rounded-[12px] py-[14px] md:py-[16px] text text-[#f9f9f9] transition duration-500 ${className}`;
 
   const borderColors = {
     default:
@@ -49,9 +55,10 @@ export const InputField = ({
   };
 
   const inputClass = `${baseClass} ${getBorderClass()}`;
+  const errorMessage = errors[name]?.message as string | undefined;
 
   return (
-    <div className="relative mb-2 md:mb-[14px] md:w-[472px]">
+    <div className={`relative ${wrapperClass}`}>
       <input
         type={type === "password" && showPass ? "text" : type}
         className={inputClass}
@@ -65,39 +72,44 @@ export const InputField = ({
       >
         {label}
       </label>
-      <div className="absolute right-[12px] top-[14px] flex items-center space-x-2 md:right-[15px] md:top-4">
-        {!errors[name]?.message && dirtyFields[name] && (
-          <Icon
-            id="chack-good"
-            size={18}
-            className="fill-[#30B94D] stroke-none md:size-5"
-          />
-        )}
-        {errors[name]?.message && dirtyFields[name] && (
-          <Icon
-            id="chack-error"
-            size={18}
-            className="fill-[#E90516] stroke-none md:size-5"
-          />
-        )}
-        {type === "password" && setShowPass && (
-          <button
-            type="button"
-            onClick={() => setShowPass(!showPass)}
-            className="ml-2 md:ml-3"
-          >
-            <Icon
-              id={showPass ? "eye" : "eye-off"}
-              size={18}
-              className="fill-none stroke-white md:size-5"
-            />
-          </button>
-        )}
-      </div>
-      {errors[name] && (
-        <p className="text-message text-[#E90516]">{errors[name]?.message}</p>
+
+      {isAuthPage && (
+        <>
+          <div className="absolute right-[12px] top-[14px] flex items-center space-x-2 md:right-[15px] md:top-4">
+            {!errorMessage && dirtyFields[name] && (
+              <Icon
+                id="chack-good"
+                size={18}
+                className="fill-[#30B94D] stroke-none md:size-5"
+              />
+            )}
+            {errorMessage && dirtyFields[name] && (
+              <Icon
+                id="chack-error"
+                size={18}
+                className="fill-[#E90516] stroke-none md:size-5"
+              />
+            )}
+            {type === "password" && setShowPass && (
+              <button
+                type="button"
+                onClick={() => setShowPass(!showPass)}
+                className="ml-2 md:ml-3"
+              >
+                <Icon
+                  id={showPass ? "eye" : "eye-off"}
+                  size={18}
+                  className="fill-none stroke-white md:size-5"
+                />
+              </button>
+            )}
+          </div>
+        </>
       )}
-      {!errors[name] && dirtyFields[name] && (
+      {errors[name] && (
+        <p className="text-message text-[#E90516]">{errorMessage}</p>
+      )}
+      {isAuthPage && !errors[name] && dirtyFields[name] && (
         <p className="text-message text-[#30B94D]">
           {`${name.charAt(0).toUpperCase()}${name.slice(1)} is secure`}
         </p>

@@ -19,15 +19,16 @@ export const Dashboard = () => {
         </h3>
 
         <ul className="mb-5 flex flex-col gap-5 md:mb-[26px]">
-          {createItems.map((item, index) => (
-            <li key={index} className="flex gap-3">
-              <div className="number">{item.number}</div>
-              <p className={`description ${item.className} text-[#f9f9f9]`}>
-                {item.description}{" "}
-                <span className="text-[#686868]">{item.details}</span>
-              </p>
-            </li>
-          ))}
+          {!isLibraryPage &&
+            createItems.map((item, index) => (
+              <li key={index} className="flex gap-[14px] md:gap-[10px]">
+                <div className="number">{item.number}</div>
+                <p className={`description text-[#f9f9f9] ${item.className}`}>
+                  {item.description}{" "}
+                  <span className="text-[#686868]">{item.details}</span>
+                </p>
+              </li>
+            ))}
         </ul>
 
         <Link

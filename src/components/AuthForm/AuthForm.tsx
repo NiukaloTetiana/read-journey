@@ -1,11 +1,22 @@
 import { Link } from "react-router-dom";
-import { useForm, SubmitHandler } from "react-hook-form";
+import {
+  useForm,
+  SubmitHandler,
+  UseFormRegister,
+  FieldValues,
+} from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
 
-import { InputField, IFormData, Logo } from "../../components";
+import { InputField, Logo } from "../../components";
 
 import { registerSchema, loginSchema } from "../../schemas";
+
+interface IFormData {
+  name?: string;
+  email: string;
+  password: string;
+}
 
 interface IAuthFormProps {
   registration?: boolean;
@@ -63,8 +74,9 @@ export const AuthForm = ({ registration, toggleModal }: IAuthFormProps) => {
           label="Name:"
           errors={errors}
           dirtyFields={dirtyFields}
-          register={register}
-          className="pl-[59px] md:pl-[65px]"
+          register={register as unknown as UseFormRegister<FieldValues>}
+          className="pl-[59px] pr-9 md:pl-[65px] md:pr-10"
+          wrapperClass="mb-2 md:mb-[14px] md:w-[472px]"
         />
       )}
 
@@ -74,8 +86,9 @@ export const AuthForm = ({ registration, toggleModal }: IAuthFormProps) => {
         label="Mail:"
         errors={errors}
         dirtyFields={dirtyFields}
-        register={register}
-        className="pl-[49px] md:pl-[53px]"
+        register={register as unknown as UseFormRegister<FieldValues>}
+        className="pl-[49px] pr-9 md:pl-[53px] md:pr-10"
+        wrapperClass="mb-2 md:mb-[14px] md:w-[472px]"
       />
 
       <InputField
@@ -84,8 +97,9 @@ export const AuthForm = ({ registration, toggleModal }: IAuthFormProps) => {
         label="Password:"
         errors={errors}
         dirtyFields={dirtyFields}
-        register={register}
-        className="pl-[78px] md:pl-[86px]"
+        register={register as unknown as UseFormRegister<FieldValues>}
+        className="pl-[78px] pr-[58px] md:pl-[86px] md:pr-[68px]"
+        wrapperClass="mb-1 md:w-[472px]"
       />
 
       <div className="mt-auto flex items-center gap-[14px] md:gap-5">

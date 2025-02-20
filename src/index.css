@@ -133,15 +133,6 @@ textarea:-webkit-autofill:focus {
   @apply absolute bottom-0 left-0 h-[3px] w-full origin-right scale-x-0 rounded-[8px] bg-[#4f92f7] transition duration-500 content-[''] hover:origin-left hover:scale-x-100;
 }
 
-.input {
-  @apply text h-[44px] w-[295px] rounded-[12px] border border-transparent bg-[#262626] text-[#f9f9f9] sm-max:w-[240px] md:h-[50px] lg:w-[313px];
-
-  &:hover,
-  &:focus-visible {
-    @apply border-[#f9f9f919] shadow-md;
-  }
-}
-
 .label {
   @apply text absolute left-[14px] top-[14px] text-[#686868] md:top-[16px];
 }
