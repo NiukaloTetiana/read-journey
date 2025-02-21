@@ -15,7 +15,6 @@ export const ImgBlock = () => {
           width={405}
           height={656}
           type="image/webp"
-          className=""
         />
         <img
           srcSet={`${iphone_mobile_1x} 1x, ${iphone_mobile_2x} 2x`}
