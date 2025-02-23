@@ -24,10 +24,10 @@ export const UserBooksItem = ({ book }: IUserBooksItemProps) => {
 
       <div className="flex items-center justify-between gap-[14px]">
         <div>
-          <h4 className="description mb-[2px] w-[90px] truncate text-[#f9f9f9]">
+          <h4 className="description mb-[2px] w-[90px] truncate text-[#f9f9f9] sm-max:w-[70px]">
             {title}
           </h4>
-          <p className="w-[90px] truncate text-[10px] leading-[1.2] tracking-[-0.02em] text-[#686868]">
+          <p className="w-[90px] truncate text-[10px] leading-[1.2] tracking-[-0.02em] text-[#686868] sm-max:w-[70px]">
             {author}
           </p>
         </div>

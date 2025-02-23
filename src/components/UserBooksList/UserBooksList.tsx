@@ -23,7 +23,7 @@ const books = [
 
 export const UserBooksList = () => {
   return (
-    <ul className="flex flex-wrap gap-[21px] sm-max:gap-5 md:gap-x-[25px] md:gap-y-[27px] lg:gap-x-5">
+    <ul className="flex flex-wrap gap-[21px] sm-max:gap-4 md:gap-x-[25px] md:gap-y-[27px] lg:gap-x-5">
       {books.map((book) => (
         <UserBooksItem key={book._id} book={book} />
       ))}

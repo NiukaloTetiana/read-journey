@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 
-import { BookForm, Icon } from "../../components";
+import { BookForm, Icon, RecommendedList } from "../../components";
 import { createItems } from "../../constants";
 
 export const Dashboard = () => {
@@ -13,14 +13,18 @@ export const Dashboard = () => {
     >
       <BookForm />
 
-      <div className="w-[295px] rounded-[12px] bg-[#262626] p-5 sm-max:w-[240px] md:w-[313px]">
-        <h3 className="text-dashboard mb-5 text-[#f9f9f9] md:mb-10">
+      <div className="w-[295px] rounded-[12px] bg-[#262626] p-5 sm-max:w-[240px] sm-max:px-[15px] md:w-[313px]">
+        <h3
+          className={`text-dashboard text-[#f9f9f9] ${
+            !isLibraryPage ? "mb-5 md:mb-10" : "mb-[14px] md:mb-5"
+          }`}
+        >
           {isLibraryPage ? "Recommended books" : "Start your workout"}
         </h3>
 
-        <ul className="mb-5 flex flex-col gap-5 md:mb-[26px]">
-          {!isLibraryPage &&
-            createItems.map((item, index) => (
+        {!isLibraryPage ? (
+          <ul className="mb-5 flex flex-col gap-5 md:mb-[26px]">
+            {createItems.map((item, index) => (
               <li key={index} className="flex gap-[14px] md:gap-[10px]">
                 <div className="number">{item.number}</div>
                 <p className={`description text-[#f9f9f9] ${item.className}`}>
@@ -29,7 +33,10 @@ export const Dashboard = () => {
                 </p>
               </li>
             ))}
-        </ul>
+          </ul>
+        ) : (
+          <RecommendedList />
+        )}
 
         <Link
           to={!isLibraryPage ? "/library" : "/recommended"}

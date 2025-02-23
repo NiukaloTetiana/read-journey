@@ -1,9 +1,12 @@
+import { useLocation } from "react-router-dom";
+
 import { useModal } from "../../hooks";
+
 import { AddBookModal, Modal, RecommendedItem } from "../../components";
 
 const books = [
   {
-    _id: "654fc4d00a563c69b09895ef",
+    _id: "654fc4d00a563c69b895ef",
     title: "Lovers of Justice",
     author: "Yuri Andrukhovych",
     imageUrl:
@@ -20,12 +23,26 @@ const books = [
     totalPages: 72,
     recommend: true,
   },
+  {
+    _id: "654fe854548f3b992ad6963c",
+    title: "There is land beyond Perekop",
+    author: "Anastasiia Levkova",
+    imageUrl:
+      "https://res.cloudinary.com/drfvfno3o/image/upload/v1699735635/books/654f5eedca10dbb094e5c197_There_is_land_beyond_Perekop.webp",
+    totalPages: 392,
+    recommend: true,
+  },
 ];
 
 export const RecommendedList = () => {
   const [isAddBookModalOpen, toggleAddBookModal] = useModal();
+  const location = useLocation();
+  const isHomePage = location.pathname === "/recommended";
+
   return (
-    <ul className="flex flex-wrap gap-[21px] sm-max:gap-5 md:gap-x-[25px] md:gap-y-[27px] lg:gap-x-5">
+    <ul
+      className={`flex ${isHomePage ? "flex-wrap gap-[21px] sm-max:gap-5 md:gap-x-[25px] md:gap-y-[27px] lg:gap-x-5" : "gap-5 sm-max:gap-2"}`}
+    >
       {books.map((book) => (
         <RecommendedItem
           key={book._id}
