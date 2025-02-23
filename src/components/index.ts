@@ -22,3 +22,5 @@ export * from "./AddBookModal/AddBookModal";
 export * from "./MyLibraryBooks/MyLibraryBooks";
 export * from "./BookForm/BookForm";
 export * from "./FilterSelect/FilterSelect";
+export * from "./UserBooksList/UserBooksList";
+export * from "./UserBooksList/UserBooksItem";

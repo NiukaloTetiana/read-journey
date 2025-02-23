@@ -1,11 +1,17 @@
+import { Link, useLocation } from "react-router-dom";
+
+import { IBook } from "../../types";
+
 interface IBookModalProps {
   book: IBook;
-  openAddBookModal: () => void;
+  openAddBookModal?: () => void;
 }
-import { IBook } from "../../types";
 
 export const BookModal = ({ book, openAddBookModal }: IBookModalProps) => {
   const { imageUrl, title, author, totalPages } = book;
+
+  const location = useLocation();
+  const isLibraryPage = location.pathname === "/library";
 
   return (
     <div className="flex flex-col items-center">
@@ -27,13 +33,22 @@ export const BookModal = ({ book, openAddBookModal }: IBookModalProps) => {
         {totalPages} pages
       </p>
 
-      <button
-        onClick={openAddBookModal}
-        type="button"
-        className="button hover-logout h-[42px] w-[141px] border-[#f9f9f933] bg-transparent p-[12px] text-[#f9f9f9] md:h-[46px] md:w-[162px] md:p-[14px]"
-      >
-        Add to library
-      </button>
+      {!isLibraryPage ? (
+        <button
+          onClick={openAddBookModal}
+          type="button"
+          className="button hover-logout h-[42px] w-[141px] border-[#f9f9f933] bg-transparent p-[12px] text-[#f9f9f9] md:h-[46px] md:w-[162px] md:p-[14px]"
+        >
+          Add to library
+        </button>
+      ) : (
+        <Link
+          to="/reading"
+          className="button hover-logout h-[42px] w-[138px] border-[#f9f9f933] bg-transparent p-[12px] text-[#f9f9f9] md:h-[46px] md:w-[159px] md:p-[14px]"
+        >
+          Start reading
+        </Link>
+      )}
     </div>
   );
 };

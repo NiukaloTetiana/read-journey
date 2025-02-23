@@ -29,9 +29,7 @@ export const RecommendedItem = ({
         />
       </div>
 
-      <div>
-        <h4 className="description mb-[2px] text-[#f9f9f9]">{title}</h4>
-      </div>
+      <h4 className="description mb-[2px] text-[#f9f9f9]">{title}</h4>
       <p className="text-[10px] leading-[1.2] tracking-[-0.02em] text-[#686868]">
         {author}
       </p>
