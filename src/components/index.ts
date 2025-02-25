@@ -24,3 +24,4 @@ export * from "./BookForm/BookForm";
 export * from "./FilterSelect/FilterSelect";
 export * from "./UserBooksList/UserBooksList";
 export * from "./UserBooksList/UserBooksItem";
+export * from "./FinishBookModal/FinishBookModal";
