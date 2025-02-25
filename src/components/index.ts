@@ -25,3 +25,4 @@ export * from "./FilterSelect/FilterSelect";
 export * from "./UserBooksList/UserBooksList";
 export * from "./UserBooksList/UserBooksItem";
 export * from "./FinishBookModal/FinishBookModal";
+export * from "./AddReading/AddReading";
