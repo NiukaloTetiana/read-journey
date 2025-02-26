@@ -25,5 +25,7 @@ export * from "./FilterSelect/FilterSelect";
 export * from "./UserBooksList/UserBooksList";
 export * from "./UserBooksList/UserBooksItem";
 export * from "./FinishBookModal/FinishBookModal";
+export * from "./Filters/Filters";
+export * from "./AddBook/AddBook";
 export * from "./AddReading/AddReading";
 export * from "./MyBook/MyBook";

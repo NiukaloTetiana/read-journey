@@ -5,9 +5,11 @@ import {
   FieldValues,
 } from "react-hook-form";
 import { useLocation } from "react-router-dom";
-import { InputField } from "../../components";
 import { yupResolver } from "@hookform/resolvers/yup";
+
 import { addBookSchema, filtersSchema } from "../../schemas";
+
+import { InputField } from "../../components";
 
 export const BookForm = () => {
   const location = useLocation();
@@ -53,7 +55,7 @@ export const BookForm = () => {
       {isLibraryPage && (
         <InputField
           name="totalPages"
-          label="Number of author:"
+          label="Number of pages:"
           type="text"
           errors={errors}
           dirtyFields={dirtyFields}
