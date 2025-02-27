@@ -43,7 +43,7 @@ export const AddBook = () => {
         errors={errors}
         dirtyFields={dirtyFields}
         register={register as unknown as UseFormRegister<FieldValues>}
-        className="p-[12px] pl-[77px] md:p-4 md:pl-[86px]"
+        className="p-[14px] pl-[77px] md:p-4 md:pl-[86px]"
         wrapperClass="mb-2 md:w-[295px] lg:w-[313px]"
       />
       <InputField
@@ -53,7 +53,7 @@ export const AddBook = () => {
         errors={errors}
         dirtyFields={dirtyFields}
         register={register as unknown as UseFormRegister<FieldValues>}
-        className="p-[12px] pl-[85px] md:p-4 md:pl-[95px]"
+        className="p-[14px] pl-[85px] md:p-4 md:pl-[95px]"
         wrapperClass="md:w-[295px] lg:w-[313px] mb-2"
       />
 
@@ -64,7 +64,7 @@ export const AddBook = () => {
         errors={errors}
         dirtyFields={dirtyFields}
         register={register as unknown as UseFormRegister<FieldValues>}
-        className="p-[12px] pl-[119px] md:p-4 md:pl-[135px]"
+        className="p-[14px] pl-[119px] md:p-4 md:pl-[135px]"
         wrapperClass="mb-5 md:mb-[38px] lg:mb-5 md:w-[295px] lg:w-[313px]"
       />
 

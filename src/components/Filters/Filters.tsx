@@ -30,7 +30,7 @@ export const Filters = () => {
         errors={{}}
         dirtyFields={{}}
         register={register as unknown as UseFormRegister<FieldValues>}
-        className="p-[12px] pl-[77px] md:p-4 md:pl-[86px]"
+        className="p-[14px] pl-[77px] md:p-4 md:pl-[86px]"
         wrapperClass="mb-2 md:w-[295px] lg:w-[313px]"
       />
       <InputField
@@ -40,7 +40,7 @@ export const Filters = () => {
         errors={{}}
         dirtyFields={{}}
         register={register as unknown as UseFormRegister<FieldValues>}
-        className="p-[12px] pl-[85px] md:p-4 md:pl-[95px]"
+        className="p-[14px] pl-[85px] md:p-4 md:pl-[95px]"
         wrapperClass="md:w-[295px] lg:w-[313px] mb-5"
       />
       <button
