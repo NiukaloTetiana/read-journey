@@ -23,6 +23,7 @@ export const AddBook = () => {
     handleSubmit,
     formState: { errors, dirtyFields },
   } = useForm<FormData>({
+    mode: "onChange",
     resolver: yupResolver(addBookSchema),
   });
 

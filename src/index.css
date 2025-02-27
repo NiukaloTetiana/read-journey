@@ -69,6 +69,15 @@ textarea:-webkit-autofill:focus {
   -webkit-text-fill-color: #1f1f1f !important;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 .title {
   @apply text-[20px] font-bold leading-[1] tracking-[-0.02em] text-[#f9f9f9] md:text-[28px] md:leading-[1.14] md:tracking-[0.02em];
 }

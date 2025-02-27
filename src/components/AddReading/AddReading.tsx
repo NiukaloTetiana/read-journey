@@ -6,20 +6,25 @@ import {
 } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { filtersSchema } from "../../schemas";
+import { AddReadingSchema } from "../../schemas";
 
 import { InputField } from "../../components";
+
+interface FormData {
+  page: number;
+}
 
 export const AddReading = () => {
   const {
     register,
     handleSubmit,
     formState: { errors, dirtyFields },
-  } = useForm<FieldValues>({
-    resolver: yupResolver(filtersSchema),
+  } = useForm<FormData>({
+    mode: "onChange",
+    resolver: yupResolver(AddReadingSchema),
   });
 
-  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
     console.log(data);
   };
   return (
@@ -28,7 +33,7 @@ export const AddReading = () => {
         Start page:
       </p>
       <InputField
-        name="title"
+        name="page"
         label="Page number:"
         type="number"
         errors={errors}

@@ -47,9 +47,10 @@ export const addBookSchema = yup.object({
     .min(1, "Pages number must be greater than 0"),
 });
 
-export const filtersSchema = yup.object({
-  title: yup.string(),
-  author: yup.string(),
+export const AddReadingSchema = yup.object({
+  page: yup
+    .number()
+    .typeError("Number of page must be a number")
+    .required("Number of page is required")
+    .min(1, "Page number must be greater than 0"),
 });
-
-export const AddReadingSchema = yup.object({});

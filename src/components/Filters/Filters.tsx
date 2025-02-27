@@ -4,18 +4,18 @@ import {
   UseFormRegister,
   FieldValues,
 } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-
-import { filtersSchema } from "../../schemas";
 
 import { InputField } from "../../components";
 
-export const Filters = () => {
-  const { register, handleSubmit } = useForm<FieldValues>({
-    resolver: yupResolver(filtersSchema),
-  });
+interface FormData {
+  title: string;
+  author: string;
+}
 
-  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+export const Filters = () => {
+  const { register, handleSubmit } = useForm<FormData>();
+
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
     console.log(data);
   };
   return (
