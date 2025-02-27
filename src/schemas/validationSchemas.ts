@@ -27,7 +27,7 @@ export const loginSchema = yup.object().shape({
     .required("Email is required")
     .email("Enter a valid email")
     .matches(emailRegExp, "Enter a valid email")
-    .max(64, "Max length must be less than 64 chars"),
+    .max(64, "Max length must be less than 64 characters"),
   password: yup.string().required("Password is required"),
 });
 
@@ -35,15 +35,21 @@ export const addBookSchema = yup.object({
   title: yup
     .string()
     .required("Book title is required")
-    .min(2, "Min length must be more than 2 chars"),
+    .min(2, "Min length must be more than 2 characters"),
   author: yup
     .string()
     .required("The author is required")
-    .max(50, "Max length must be less than 50 chars"),
-  totalPages: yup.string().required("Number of pages is required"),
+    .max(50, "Max length must be less than 50 characters"),
+  totalPages: yup
+    .number()
+    .typeError("Number of pages must be a number")
+    .required("Number of pages is required")
+    .min(1, "Pages number must be greater than 0"),
 });
 
 export const filtersSchema = yup.object({
   title: yup.string(),
   author: yup.string(),
 });
+
+export const AddReadingSchema = yup.object({});
