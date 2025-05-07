@@ -51,6 +51,11 @@ body {
 
 input {
   @apply outline-none;
+
+  &:hover,
+  &:focus-visible {
+    @apply outline-none;
+  }
 }
 
 input:-webkit-autofill,

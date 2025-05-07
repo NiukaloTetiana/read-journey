@@ -12,6 +12,9 @@ import { InputField, Logo } from "../../components";
 
 import { registerSchema, loginSchema } from "../../schemas";
 
+import { loginUser, registerUser } from "../../redux";
+import { useAppDispatch } from "../../hooks";
+
 interface IFormData {
   name?: string;
   email: string;
@@ -24,6 +27,8 @@ interface IAuthFormProps {
 }
 
 export const AuthForm = ({ registration, toggleModal }: IAuthFormProps) => {
+  const dispatch = useAppDispatch();
+
   const {
     register,
     reset,
@@ -36,16 +41,16 @@ export const AuthForm = ({ registration, toggleModal }: IAuthFormProps) => {
 
   const onSubmit: SubmitHandler<IFormData> = async ({
     name,
-    // email,
-    // password,
+    email,
+    password,
   }) => {
     try {
       if (registration && name) {
-        // await dispatch(registerUser({ name, email, password })).unwrap();
+        await dispatch(registerUser({ name, email, password })).unwrap();
 
         toast.success(`Yohoo! ${name}, you are successfully registered!`);
       } else {
-        // await dispatch(loginUser({ email, password })).unwrap();
+        await dispatch(loginUser({ email, password })).unwrap();
 
         toast.success(`Welcome back!`);
       }
