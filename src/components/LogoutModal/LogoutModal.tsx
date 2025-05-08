@@ -1,28 +1,26 @@
-import { useState } from "react";
 import { toast } from "react-toastify";
 
 import { Loader } from "..";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { logoutUser, selectIsLoadingAuth } from "../../redux";
 
 interface ILogoutProps {
   toggleLogoutModal: () => void;
 }
 
 export const LogoutModal = ({ toggleLogoutModal }: ILogoutProps) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useAppDispatch();
+  const isLoading = useAppSelector(selectIsLoadingAuth);
 
-  const handleLogout = () => {
-    setIsLoading(true);
-    Promise.resolve()
-      .then(() => {
-        toggleLogoutModal();
-        toast.warning("In order to use the application you must log in.");
-      })
-      .catch(() => {
-        toast.error("Oops...Something wrong.");
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+  const handleLogout = async () => {
+    try {
+      await dispatch(logoutUser()).unwrap();
+
+      toggleLogoutModal();
+      toast.warning("In order to use the application you must log in.");
+    } catch (error) {
+      toast.error("Oops...Something wrong.");
+    }
   };
 
   return (
