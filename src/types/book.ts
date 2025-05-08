@@ -7,16 +7,16 @@ export interface IBook {
   recommend: boolean;
 }
 
-export type ReadingProgress = {
+export interface IReadingProgress {
   startPage: number;
   startReading: string;
-  finishPage: number;
-  finishReading: string;
-  speed: number;
+  finishPage?: number;
+  finishReading?: string;
+  speed?: number;
   status: "inactive" | "active";
-};
+}
 
-export type OwnBook = {
+export interface IBookOwn {
   _id: string;
   title: string;
   author: string;
@@ -24,5 +24,35 @@ export type OwnBook = {
   totalPages: number;
   status: "in-progress" | "unread" | "completed";
   owner: string;
-  progress: ReadingProgress[];
-};
+  progress: IReadingProgress[];
+}
+
+export interface IBooksRecommendedResponse {
+  results: IBook[];
+  totalPages: number;
+  page: number;
+  perPage: number;
+}
+
+export interface IBooksRecommendedRequest {
+  title?: string;
+  author?: string;
+  page: number;
+  limit: number;
+}
+
+export interface INewBook {
+  title: string;
+  author: string;
+  totalPages: number;
+}
+
+export interface ITimeLeftToRead {
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
+
+export interface IResponseReading extends IBookOwn {
+  timeLeftToRead?: ITimeLeftToRead;
+}
