@@ -254,3 +254,16 @@ input[type="number"] {
     }
   }
 }
+
+.pagination {
+  @apply flex size-8 items-center justify-center rounded-full border border-[#f9f9f920] bg-transparent transition duration-500 disabled:pointer-events-none md:size-10;
+
+  &:hover,
+  &:focus-visible {
+    @apply border-[#4F92F7];
+  }
+}
+
+.pagination-icon {
+  @apply fill-none stroke-[#F9F9F9] transition duration-500 md:size-5;
+}
