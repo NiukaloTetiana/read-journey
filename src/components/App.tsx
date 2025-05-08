@@ -1,7 +1,11 @@
-import { lazy } from "react";
+import { lazy, useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
-import { Layout } from "../components";
+import { Layout, Loader } from "../components";
+
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { refreshUser, selectIsRefreshing } from "../redux";
+import { PrivateRoute, PublicRoute } from "../routes";
 
 const RegisterPage = lazy(() => import("../pages/RegisterPage"));
 const LoginPage = lazy(() => import("../pages/LoginPage"));
@@ -10,15 +14,60 @@ const MyLibraryPage = lazy(() => import("../pages/MyLibraryPage"));
 const ReadingPage = lazy(() => import("../pages/ReadingPage"));
 
 export const App = () => {
-  return (
+  const dispatch = useAppDispatch();
+  const isRefreshing = useAppSelector(selectIsRefreshing);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <Loader />
+  ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/recommended" element={<RecommendedPage />} />
-        <Route path="/library" element={<MyLibraryPage />} />
-        <Route path="/reading" element={<ReadingPage />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route index element={<Navigate to="/recommended" replace />} />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <RegisterPage />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <LoginPage />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/recommended"
+          element={
+            <PrivateRoute>
+              <RecommendedPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/library"
+          element={
+            <PrivateRoute>
+              <MyLibraryPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/reading"
+          element={
+            <PrivateRoute>
+              <ReadingPage />
+            </PrivateRoute>
+          }
+        />
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Route>
     </Routes>
   );
