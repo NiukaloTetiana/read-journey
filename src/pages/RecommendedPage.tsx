@@ -1,10 +1,36 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { createItems } from "../constants";
 
-import { Dashboard, Filters, Icon, RecommendedBooks } from "../components";
+import {
+  Dashboard,
+  Filters,
+  Icon,
+  Loader,
+  RecommendedBooks,
+} from "../components";
+
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { getBooksRecommended, selectIsLoadingBooks } from "../redux";
 
 const RecommendedPage = () => {
+  const dispatch = useAppDispatch();
+  const isLoading = useAppSelector(selectIsLoadingBooks);
+
+  useEffect(() => {
+    const fetchRecommendedBooks = async () => {
+      try {
+        await dispatch(getBooksRecommended({ page: 1, limit: 10 })).unwrap();
+      } catch (error) {
+        toast.error("Oops... Something went wrong.");
+      }
+    };
+
+    fetchRecommendedBooks();
+  }, [dispatch]);
+
   return (
     <div className="pb-2 md:pb-8 lg:pb-[27px]">
       <div className="container flex flex-col gap-[10px] md:gap-4 lg:flex-row">
@@ -50,6 +76,7 @@ const RecommendedPage = () => {
         </Dashboard>
         <RecommendedBooks />
       </div>
+      {isLoading && <Loader />}
     </div>
   );
 };
