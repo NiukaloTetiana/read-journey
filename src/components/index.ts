@@ -28,3 +28,4 @@ export * from "./Filters/Filters";
 export * from "./AddBook/AddBook";
 export * from "./AddReading/AddReading";
 export * from "./MyBook/MyBook";
+export * from "./Pagination/Pagination";
